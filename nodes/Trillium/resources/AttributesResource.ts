@@ -16,7 +16,7 @@ const properties: INodeProperties[] = [
       { name: 'Update', value: 'update', routing: { request: { method: 'PATCH', url: '=/attributes/{{$parameter.attributeId}}' } } },
       { name: 'Delete', value: 'delete', routing: { request: { method: 'DELETE', url: '=/attributes/{{$parameter.attributeId}}' } } },
     ],
-    default: 'getAll',
+    default: 'get',
   },
   // Parameters for Get
   {

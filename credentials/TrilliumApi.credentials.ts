@@ -18,7 +18,7 @@ export class TrilliumApi implements ICredentialType {
       default: '',
       required: true,
       placeholder: 'https://your-trillium-instance.com',
-      description: 'The base URL of your Trillium instance',
+      description: 'The base URL of your Trillium instance (without /etapi)',
     },
     {
       displayName: 'Token',

@@ -14,7 +14,7 @@ Or install via n8n's community node interface.
 
 ## Features
 
-- ✅ Full CRUD operations for notes, attributes, and relations
+- ✅ Full CRUD operations for notes, attributes, and relations (relations via attributes)
 - ✅ Trillium Notes authentication support
 - ✅ Declarative architecture for reliability
 - ✅ Comprehensive testing included
@@ -38,19 +38,16 @@ Or install via n8n's community node interface.
 - **Get Content**: Get note content
 - **Delete**: Delete a note
 - **Get Children**: Get child notes
-- **Get Parents**: Get parent notes
 - **Search**: Search notes using query parameters
 - **Export**: Export note with subnotes
 
 #### Attribute Operations
-- **Get All**: Get all attributes of a note
+- **Get**: Retrieve an attribute by ID
 - **Create**: Create an attribute for a note
 - **Update**: Update an attribute
 - **Delete**: Delete an attribute
 
-#### Relation Operations
-- **Create**: Create a relation between two notes
-- **Delete**: Delete a relation between two notes
+*Note: Relations between notes are managed as attributes with type "relation".*
 
 ### Configuration
 
@@ -58,7 +55,7 @@ Or install via n8n's community node interface.
 
 Set up your Trillium Notes API credentials:
 
-- **Base URL**: Your Trillium instance URL ending with `/etapi` (e.g., `https://trilium.example.com/etapi`)
+- **Base URL**: Your Trillium instance URL (without /etapi)
 - **Token**: ETAPI token from Trillium Options > ETAPI
 
 #### Node Parameters

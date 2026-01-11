@@ -8,7 +8,7 @@ describe('NotesResource', () => {
     const operationProp = NotesResource.properties.find((p: any) => p.name === 'operation');
     expect(operationProp).toBeDefined();
     expect(operationProp!.displayOptions!.show!.resource).toEqual(['note']);
-    expect(operationProp!.options).toHaveLength(8);
+    expect(operationProp!.options).toHaveLength(9);
   });
 
   it('should have correct parameters for Get operation', () => {

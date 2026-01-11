@@ -17,6 +17,7 @@ const properties: INodeProperties[] = [
       { name: 'Update Content', value: 'updateContent', routing: { request: { method: 'PUT', url: '=/notes/{{$parameter.noteId}}/content', headers: { 'Content-Type': 'text/plain' } } } },
       { name: 'Get Content', value: 'getContent', routing: { request: { method: 'GET', url: '=/notes/{{$parameter.noteId}}/content' }, output: { postReceive: [async (items, response) => [{ json: { content: response.body as string } }]] } } },
       { name: 'Delete', value: 'delete', routing: { request: { method: 'DELETE', url: '=/notes/{{$parameter.noteId}}' } } },
+      { name: 'Get Children', value: 'getChildren', routing: { request: { method: 'GET', url: '/notes', qs: { ancestorNoteId: '={{$parameter.noteId}}' } } } },
       { name: 'Search', value: 'search', routing: { request: { method: 'GET', url: '/notes', qs: { search: '={{$parameter.search}}', fastSearch: '={{$parameter.fastSearch}}', includeArchivedNotes: '={{$parameter.includeArchivedNotes}}', ancestorNoteId: '={{$parameter.ancestorNoteId}}', orderBy: '={{$parameter.orderBy}}', orderDirection: '={{$parameter.orderDirection}}', limit: '={{$parameter.limit}}', debug: '={{$parameter.debug}}' } } } },
       { name: 'Export', value: 'export', routing: { request: { method: 'GET', url: '=/notes/{{$parameter.noteId}}/export', qs: { format: '={{$parameter.format}}' } }, output: { postReceive: [async (items, response) => [{ json: {}, binary: { 'data': { data: (response.body as Buffer).toString('base64'), mimeType: 'application/zip', fileName: 'note-export.zip' } } }]] } } },
     ],
@@ -30,12 +31,12 @@ const properties: INodeProperties[] = [
     required: true,
     displayOptions: {
       show: {
-        operation: ['get', 'update', 'updateContent', 'getContent', 'delete', 'export'],
+        operation: ['get', 'update', 'updateContent', 'getContent', 'delete', 'getChildren', 'export'],
         resource: ['note'],
       },
     },
     default: '',
-    description: 'The ID of the note to retrieve, update, or delete.',
+    description: 'The ID of the note to retrieve, update, delete, or get children for.',
   },
   // Parameters for Create
   {

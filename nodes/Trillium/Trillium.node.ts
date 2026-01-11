@@ -19,7 +19,7 @@ export class Trillium implements INodeType {
       group: ['transform'],
       version: 1,
       subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',
-      description: 'Interact with Trillium Notes API to manage notes, attributes, and relations',
+      description: 'Interact with Trillium Notes API to manage notes, attributes, and relations (relations via attributes)',
       usableAsTool: true,
       defaults: {
         name: 'Trillium Notes',
