@@ -51,7 +51,7 @@ describe('Trillium Node', () => {
   });
 
   it('should have correct subtitle', () => {
-    expect(node.description.subtitle).toBe('={{$parameter["operation"] + ": " + $parameter["resource"]}}');
+    expect(node.description.subtitle).toBe('={{ ({get: "Get", create: "Create", update: "Update", updateContent: "Update Content", getContent: "Get Content", delete: "Delete", getChildren: "Get Children", search: "Search", export: "Export"})[$parameter["operation"]] }}');
   });
 
   it('should have correct inputs and outputs', () => {

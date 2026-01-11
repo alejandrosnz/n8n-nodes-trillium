@@ -18,7 +18,7 @@ export class Trillium implements INodeType {
       icon: 'file:trillium.svg',
       group: ['transform'],
       version: 1,
-      subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',
+      subtitle: '={{ ({get: "Get", create: "Create", update: "Update", updateContent: "Update Content", getContent: "Get Content", delete: "Delete", getChildren: "Get Children", search: "Search", export: "Export"})[$parameter["operation"]] }}',
       description: 'Interact with Trillium Notes API to manage notes, attributes, and relations (relations via attributes)',
       usableAsTool: true,
       defaults: {

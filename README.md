@@ -2,6 +2,8 @@
 
 A comprehensive n8n community node for integrating with Trillium Notes.
 
+![Workflow Example](docs/img/workflow_example.png)
+
 ## Installation
 
 Install via npm:
