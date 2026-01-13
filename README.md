@@ -58,7 +58,7 @@ Or install via n8n's community node interface.
 Set up your Trillium Notes API credentials:
 
 - **Base URL**: Your Trillium instance URL (without /etapi)
-- **Token**: ETAPI token from Trillium Options > ETAPI
+- **Token**: ETAPI token from [Trillium Options > ETAPI](docs/img/etapi_token.png)
 
 #### Node Parameters
 
