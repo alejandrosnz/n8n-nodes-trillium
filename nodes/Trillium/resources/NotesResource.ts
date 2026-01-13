@@ -12,7 +12,7 @@ const properties: INodeProperties[] = [
     },
     options: [
       { name: 'Get', value: 'get', routing: { request: { method: 'GET', url: '=/notes/{{$parameter.noteId}}' } } },
-      { name: 'Create', value: 'create', routing: { request: { method: 'POST', url: '/create-note' } } },
+      { name: 'Create', value: 'create', routing: { request: { method: 'POST', url: '/create-note', body: { parentNoteId: '={{$parameter.parentNoteId}}', title: '={{$parameter.title}}', type: '={{$parameter.type}}', mime: '={{$parameter.mime}}', content: '={{$parameter.content}}' } } } },
       { name: 'Update', value: 'update', routing: { request: { method: 'PATCH', url: '=/notes/{{$parameter.noteId}}' } } },
       { name: 'Update Content', value: 'updateContent', routing: { request: { method: 'PUT', url: '=/notes/{{$parameter.noteId}}/content', headers: { 'Content-Type': 'text/plain' } } } },
       { name: 'Get Content', value: 'getContent', routing: { request: { method: 'GET', url: '=/notes/{{$parameter.noteId}}/content' }, output: { postReceive: [async (items, response) => [{ json: { content: response.body as string } }]] } } },
@@ -95,7 +95,7 @@ const properties: INodeProperties[] = [
     displayName: 'Content',
     name: 'content',
     type: 'string',
-    required: false,
+    required: true,
     displayOptions: {
       show: {
         operation: ['create'],
@@ -109,14 +109,14 @@ const properties: INodeProperties[] = [
     displayName: 'MIME Type',
     name: 'mime',
     type: 'string',
-    required: false,
+    required: true,
     displayOptions: {
       show: {
         operation: ['create'],
         resource: ['note'],
       },
     },
-    default: '',
+    default: 'text/html',
     description: 'MIME type (e.g., text/html for text, application/javascript for code)',
   },
   // Parameters for Update
